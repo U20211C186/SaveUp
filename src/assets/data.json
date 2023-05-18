@@ -1,0 +1,52 @@
+{
+  "registers": [
+    {
+      "email": "juan@gmail.com",
+      "nombre": "Aldo",
+      "apellido": "Pastrana",
+      "direcion": "",
+      "departamento": "",
+      "distrtito": "",
+      "celular": "",
+      "contraseña": "",
+      "repetircontra": "",
+      "id": 1
+    },
+    {
+      "email": "juan@gmail.com",
+      "nombre": "Aldo",
+      "apellido": "Pastrana",
+      "direccion": "Comas",
+      "departamento": "asd",
+      "distrtito": "asd",
+      "celular": "98765421",
+      "contrasena": "asd",
+      "repetircontra": "asd",
+      "id": 2
+    },
+    {
+      "email": "jenni@gmail.com",
+      "nombre": "jenifer",
+      "apellido": "asd",
+      "direccion": "das",
+      "departamento": "asd",
+      "distrtito": "asd",
+      "celular": "asd",
+      "contrasena": "asd",
+      "repetircontra": "asd",
+      "id": 4
+    },
+    {
+      "email": null,
+      "nombre": null,
+      "apellido": null,
+      "direccion": null,
+      "departamento": null,
+      "distrtito": null,
+      "celular": null,
+      "contrasena": null,
+      "repetircontra": null,
+      "id": 5
+    }
+  ]
+}
