@@ -3,12 +3,14 @@ import { Injectable } from '@angular/core';
 import { catchError, Observable, retry, throwError } from 'rxjs';
 import { Registers } from '../models/registers.model';
 import { map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpDataServiceService {
-  base_Url = "http://localhost:3000/registers";
+  base_Url:string=environment.baseURL;
 
   constructor( private http: HttpClient) { }
 
@@ -40,15 +42,34 @@ export class HttpDataServiceService {
 
   createItem(item: any): Observable<Registers> {
     return this.http
-      .post<Registers>(this.base_Url, JSON.stringify(item), this.httpOptions)
+      .post<Registers>(`${this.base_Url}/registers.json`, JSON.stringify(item), this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 
+
   getList(): Observable<Registers[]> {
     return this.http
-      .get<Registers[]>(this.base_Url)
-      .pipe(retry(2), catchError(this.handleError));
+      .get<any>(`${this.base_Url}/registers.json`)
+      .pipe(
+        retry(2),
+        catchError(this.handleError),
+        map(response => {
+          // Verificar si la respuesta contiene un array de registros
+          if (Array.isArray(response)) {
+            return response as Registers[];
+          } else if (response && typeof response === 'object') {
+            // Convertir el objeto de respuesta a un array de registros
+            return Object.keys(response).map(key => ({
+              id: key,
+              ...response[key],
+            }));
+          } else {
+            throw new Error('La respuesta no es válida');
+          }
+        })
+      );
   }
+  
 
   checkEmail(emailValue: string): Observable<boolean> {
     return this.getList().pipe(

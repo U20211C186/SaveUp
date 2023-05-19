@@ -19,6 +19,7 @@ export class RecoverPasswordComponent {
 
   onSubmit() {
     const emailValue = this.email.value;
+    console.log(emailValue);
     if (!emailValue) {
       alert("Por favor ingrese un correo electrónico");
       return;
