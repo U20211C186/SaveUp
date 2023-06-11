@@ -1,0 +1,12 @@
+<div *ngIf="profileData">
+    <img src="{{profileData.img}}" alt="">
+    <span>Nombre:  <h2>{{ profileData.name }}</h2> </span>
+    <span>Apellido:  <h2>{{ profileData.surname }}</h2> </span>
+    <span>Correo:  <h2>{{ profileData.email }}</h2> </span>
+    <span>Departamento:  <h2>{{ profileData.departament }}</h2> </span>
+    <span>Distrito:  <h2>{{ profileData.city }}</h2> </span>
+    <span>Direccion:  <h2>{{ profileData.address }}</h2> </span>
+    <span>Celular:  <h2>{{ profileData.phone }}</h2> </span>
+    <span>Contraseña:  <h2 style="display: none;">{{ profileData.password }}</h2> </span>
+    <span>Numero de Tarjeta:  <h2>{{ profileData.card }}</h2> </span>
+</div>

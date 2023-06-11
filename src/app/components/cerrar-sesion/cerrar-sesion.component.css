@@ -1,0 +1,24 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.message-box {
+    background-color: #201F34;
+    padding: 70px;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.message-box p {
+    margin-bottom: 10px;
+    font-size: 50px;
+}
+
+.message-box button {
+    margin-right: 10px;
+    font-size: 30px;
+    width: 150px;
+}

@@ -6,6 +6,54 @@
     font-family: 'NunitoSans-Light';
 }
 
+
+/* Navbar */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #A2DBFA;
+    padding: 10px;
+    text-decoration: none;
+    padding-top: 30px;
+}
+
+.navbar a {
+    text-decoration: none;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+    margin-right: 10px;
+    /* Aumentar el margen derecho */
+}
+
+.logo img {
+    width: 70px;
+    height: 60px;
+    margin-right: 10px;
+}
+
+.title {
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    margin-left: 10px;
+    /* Aumentar el margen izquierdo */
+    margin-right: 90px;
+}
+
+.menu li {
+    margin-right: 30px;
+}
+
 #container {
     width: 80%;
     height: auto;
@@ -45,6 +93,8 @@ footer img {
     background-color: #67C5C8;
     padding-left: 14%;
 }
+
+
 /* W */
 
 #empresa {
@@ -112,10 +162,6 @@ footer a {
     color: #555;
 }
 
-.menu {
-    flex: content;
-}
-
 .menu_item {
     color: #67C5C8;
     width: 50%;
@@ -129,7 +175,6 @@ footer a {
     color: black;
     border: solid #67C5C8 1px;
     text-decoration: none;
-    padding-right: 30px;
 }
 
 .navbar-inverse {
@@ -144,17 +189,16 @@ footer a {
     font-size: 50px;
     padding: 100x;
 }
+
 #my_nav .menu_item {
-    margin: 0 25px;
-  }
-  
- 
-  #cajon3 {
+    margin: 50px 25px;
+}
+
+#cajon3 {
     float: left;
     width: 20%;
-    margin: 15px;
-    margin-top: 29px;
 }
+
 #botonRegistro {
     color: #67C5C8;
     border: #67C5C8 solid 2px;
@@ -166,6 +210,7 @@ footer a {
     background-color: #67C5C8;
     color: white;
 }
+
 @media screen and (max-width: 506px) {
     #botonRegistro {
         color: #67C5C8;
@@ -205,7 +250,6 @@ footer a {
 .description {
     flex: 1;
     padding-left: 20px;
-
 }
 
 #who_we_are_p {
@@ -213,6 +257,33 @@ footer a {
     margin-right: 15%;
     margin-left: 10%;
     text-align: justify;
+}
+
+
+/* nuestro equipo  */
+
+.title_posts {
+    text-align: center;
+    font-size: 70px;
+}
+
+section.section_general {
+    background: linear-gradient(to left, rgb(255 255 255), rgb(234 243 240));
+    padding: 3rem 0;
+}
+
+.container_general {
+    width: 90%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    grid-gap: 2rem;
+}
+
+.propositos_col1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 @media screen and (max-width: 1400px) {
@@ -263,6 +334,7 @@ footer a {
         margin-right: 6%;
     }
 }
+
 @media screen and (max-width: 501px) {
     #who_we_are_p {
         font-size: 27px;

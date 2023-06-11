@@ -23,6 +23,9 @@ import { LoginSessionComponent } from './components/login-session/login-session.
 import { CheckInComponent } from './components/check-in/check-in.component';
 import { PaymentMethodComponent } from './components/payment-method/payment-method.component';
 import { ProductsComponent } from './components/products/products.component';
+import { CerrarSesionComponent } from './components/cerrar-sesion/cerrar-sesion.component';
+import { PerfilComponent } from './components/perfil/perfil.component';
+import { ProfileViewComponent } from './components/profile-view/profile-view.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,10 @@ import { ProductsComponent } from './components/products/products.component';
     LoginSessionComponent,
     CheckInComponent,
     PaymentMethodComponent,
-    ProductsComponent
+    ProductsComponent,
+    CerrarSesionComponent,
+    PerfilComponent,
+    ProfileViewComponent
   ],
   imports: [
     BrowserModule,
