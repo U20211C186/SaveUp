@@ -23,8 +23,15 @@ import { LoginSessionComponent } from './components/login-session/login-session.
 import { CheckInComponent } from './components/check-in/check-in.component';
 import { PaymentMethodComponent } from './components/payment-method/payment-method.component';
 import { ProductsComponent } from './components/products/products.component';
+import { ToolbarSessionComponent } from './components/toolbar-session/toolbar-session.component';
+import { ChatboxComponent } from './components/chatbox/chatbox.component';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
+import { ConfirmPurchaseComponent } from './components/confirm-purchase/confirm-purchase.component';
+import { PurchaseHistoryComponent } from './components/purchase-history/purchase-history.component';
+import { CarritoComponent } from './components/carrito/carrito.component';
+import { CompraExitosaComponent } from './components/compra-exitosa/compra-exitosa.component';
+import { CheckInCompanyComponent } from './components/check-in-company/check-in-company.component';
 import { CerrarSesionComponent } from './components/cerrar-sesion/cerrar-sesion.component';
-import { PerfilComponent } from './components/perfil/perfil.component';
 import { ProfileViewComponent } from './components/profile-view/profile-view.component';
 
 @NgModule({
@@ -36,8 +43,15 @@ import { ProfileViewComponent } from './components/profile-view/profile-view.com
     CheckInComponent,
     PaymentMethodComponent,
     ProductsComponent,
+    ToolbarSessionComponent,
+    ChatboxComponent,
+    EditProfileComponent,
+    ConfirmPurchaseComponent,
+    PurchaseHistoryComponent,
+    CarritoComponent,
+    CompraExitosaComponent,
+    CheckInCompanyComponent,
     CerrarSesionComponent,
-    PerfilComponent,
     ProfileViewComponent
   ],
   imports: [
