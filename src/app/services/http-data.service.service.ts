@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, retry, throwError } from 'rxjs';
-import { Registers } from '../models/registers.model';
+import { Register } from '../models/register.model';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
@@ -40,23 +40,23 @@ export class HttpDataServiceService {
     );
   }
 
-  createItem(item: any): Observable<Registers> {
+  createItem(item: any): Observable<Register> {
     return this.http
-      .post<Registers>(`${this.base_Url}/registers.json`, JSON.stringify(item), this.httpOptions)
+      .post<Register>(`${this.base_Url}/register.json`, JSON.stringify(item), this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 
 
-  getList(): Observable<Registers[]> {
+  getList(): Observable<Register[]> {
     return this.http
-      .get<any>(`${this.base_Url}/registers.json`)
+      .get<any>(`${this.base_Url}/register.json`)
       .pipe(
         retry(2),
         catchError(this.handleError),
         map(response => {
           // Verificar si la respuesta contiene un array de registros
           if (Array.isArray(response)) {
-            return response as Registers[];
+            return response as Register[];
           } else if (response && typeof response === 'object') {
             // Convertir el objeto de respuesta a un array de registros
             return Object.keys(response).map(key => ({
@@ -74,12 +74,9 @@ export class HttpDataServiceService {
   checkEmail(emailValue: string): Observable<boolean> {
     return this.getList().pipe(
       map((data) => {
-        const emailExists = data.some((item: Registers) => item.email === emailValue);
+        const emailExists = data.some((item: Register) => item.email === emailValue);
         return emailExists;
       })
     );
-  }
-  
-  
-  
+  } 
 }
