@@ -1,0 +1,42 @@
+<mat-toolbar>
+    <mat-toolbar-row>
+      <div class="button-container">
+        <img src="../../../assets/images/toolbar-session/logo-app.png" aria-label="Logo app" width="100" height="60">
+      </div>
+      
+      <div class="search-container" style="margin-top: 20px;">
+        <mat-form-field>
+          <input matInput placeholder="Buscar" [(ngModel)]="searchText" (keydown.enter)="search()">
+          <button matSuffix mat-icon-button aria-label="Buscar" (click)="search()">
+            <mat-icon>search</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+
+      <div class="button-container">
+        <button mat-button class="boton" color="basic" aria-label="Button to redirect to the home section" routerLink="/products">
+            <mat-icon class="color-icon" aria-hidden="false" aria-label="Home icon" fontIcon="home"></mat-icon>
+            <span> Pagina principal </span>
+        </button>
+        <button mat-button class="boton" color="basic" aria-label="Button to redirect to the records section" routerLink="/chatbox">
+            <mat-icon class="color-icon" aria-hidden="false" aria-label="Mail icon" fontIcon="mail"></mat-icon>
+            <span> Bandeja de entrada </span>
+        </button>
+        <button mat-button class="boton" color="basic" aria-label="Button to redirect to the records section" routerLink="/edit/profile">
+            <mat-icon class="color-icon" aria-hidden="false" aria-label="Profile icon" fontIcon="person"></mat-icon>
+            <span> Perfil </span>
+        </button>
+        <button mat-button class="boton" color="basic" aria-label="Button to redirect to the records section" routerLink="/purchase/history">
+            <mat-icon class="color-icon" aria-hidden="false" aria-label="History icon" fontIcon="assignment"></mat-icon>
+            <span> Historial </span>
+        </button>
+        <button mat-button class="boton" color="basic" aria-label="Button to redirect to the records section" routerLink="/carrito">
+            <mat-icon class="color-icon" aria-hidden="false" aria-label="Shopping cart icon" fontIcon="shopping_cart"></mat-icon>
+        </button>
+        <button mat-button class="boton" color="basic" aria-label="Button to redirect to the records section" routerLink="/close/session">
+            <mat-icon class="color-icon" aria-hidden="false" aria-label="Log out icon" fontIcon="logout"></mat-icon>
+            <span> Cerrar sesion </span>
+        </button>
+      </div>
+    </mat-toolbar-row>
+</mat-toolbar>

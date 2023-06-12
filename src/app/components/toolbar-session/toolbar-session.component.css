@@ -1,0 +1,41 @@
+mat-toolbar {
+    display: flex;
+    justify-content: center;
+    width: auto;
+  }
+  
+
+mat-toolbar-row {
+    display: flex;
+    justify-content: space-between;
+    background-color: #67C5C8;
+  }
+  
+  .color-icon {
+    color: white;
+  }
+  
+  .boton {
+    margin-right: 10px;
+    border-radius: 20px;
+    padding: 6px 12px;
+  }
+  
+  .button-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  mat-form-field {
+    margin-bottom: 0;
+    width: 400px; /* Ajusta el ancho del cuadro de búsqueda según tus necesidades */
+  }
+  
+  mat-icon {
+    color: #000;
+  }
