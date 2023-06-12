@@ -6,7 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./cerrar-sesion.component.css']
 })
 export class CerrarSesionComponent {
-
-
   
 }

@@ -1,0 +1,87 @@
+.confirm-purchase {
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    min-height: 91vh;
+    min-width: 180vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .points {
+    position: absolute; 
+    top: 80px; 
+    left: 20px; 
+    font-size: 17px;
+    display: block;
+  }
+  
+  /*Estilos Card*/
+    mat-card {
+      background-color: #201F34;
+      max-width: 400px;
+      height: 600px;
+      width: 100%;
+      padding: 20px;
+      box-sizing: border-box;
+      border-radius: 50px;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    h1 {
+      font-size: 30px;
+    }
+    
+    mat-form-field {
+      padding-top: 5px;
+      width: 350px;
+    }
+  
+    button {
+      max-width: 300px;
+      font-size: 15px;
+    }
+  
+  
+    /* Estilos para pantallas de 600px o menos */
+  @media (max-width: 600px) {
+    mat-card {
+      max-width: none;
+      height: auto;
+      padding: 10px;
+    }
+    
+    mat-form-field {
+      width: 100%;
+  
+    }
+    
+    button {
+      max-width: 100%;
+    }
+  }
+  
+  /* Estilos para pantallas de 960px o menos */
+  @media (max-width: 960px) {
+    h1{
+      font-size: 25px;
+    }
+    mat-card {
+      max-width: none;
+      height: auto;
+      width: 300px;
+      padding: 10px;
+      border-radius: 60px;
+    }
+    
+    mat-form-field {
+      width: 100%;
+      
+    }
+    
+    button {
+      max-width: 100%;
+    }
+  }

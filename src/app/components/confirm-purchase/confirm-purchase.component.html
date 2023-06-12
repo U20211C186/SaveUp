@@ -1,0 +1,67 @@
+<app-toolbar-session></app-toolbar-session>
+
+<div class="points">
+    <span> Numero de puntos: 25 </span>
+</div>
+
+<div class="confirm-purchase">
+    <mat-card>
+        <h1 style=" font-weight: bold; width: 150px; hyphens: auto; text-align: center;">Confirmar compra</h1>
+    
+        <div style="color: white; flex-direction: column; align-items: center;">
+    
+            <div style="flex-direction: row;">
+                <mat-form-field appearance="fill" style="margin-right: 10px; width: 47%;">
+                    <mat-label> Nombre </mat-label>
+                    <input matInput placeholder="Placeholder" style="color: white" [formControl]="nombre" required>
+                    <mat-hint>Requerido</mat-hint>
+                </mat-form-field>
+            
+                <mat-form-field appearance="fill" style="width: 47%;">
+                    <mat-label> Apellido </mat-label>
+                    <input matInput style="color: white" [formControl]="apellido">
+                    <mat-hint>Requerido</mat-hint>
+                </mat-form-field>
+            </div>
+    
+            <div style="flex-direction: column;">
+                <mat-form-field appearance="fill">
+                    <mat-label> Direccion </mat-label>
+                    <input matInput style="color: white" [formControl]="direccion">
+                    <mat-hint>Requerido</mat-hint>
+                </mat-form-field>
+            </div>
+    
+            <div style="flex-direction: row;">
+                <mat-form-field appearance="fill" style="margin-right: 10px; width: 47%;">
+                    <mat-label> Departamento </mat-label>
+                    <input matInput placeholder="Lima" style="color: white" [formControl]="departamento">
+                    <mat-hint>Requerido</mat-hint>
+                </mat-form-field>
+            
+                <mat-form-field appearance="fill" style="width: 47%;">
+                    <mat-label> Distrito </mat-label>
+                    <input matInput style="color: white" [formControl]="distrito">
+                    <mat-hint>Requerido</mat-hint>
+                </mat-form-field>
+            </div>
+    
+            <div style="flex-direction: column;">
+                <mat-form-field appearance="fill">
+                    <mat-label> Número telefónico </mat-label>
+                    <input matInput placeholder="#########" style="color: white" [formControl]="telefono">
+                    <mat-hint>Requerido</mat-hint>
+                </mat-form-field>
+            
+                <mat-form-field appearance="fill">
+                    <mat-label> Numero de tarjeta </mat-label>
+                    <input matInput style="color: white" [formControl]="tarjeta">
+                    <mat-hint>Requerido</mat-hint>
+                </mat-form-field>
+            </div>
+        </div>
+        
+        <button mat-button style="background-color: #E95D5D;font-weight: bold" routerLink="/purchase/successful" (click)="onSubmit()"> Aceptar compra </button>
+    
+    </mat-card>
+</div>
