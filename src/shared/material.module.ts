@@ -27,7 +27,7 @@ import {MatTableModule} from '@angular/material/table';
     MatListModule,
     MatDividerModule,
     MatPaginatorModule,
-    MatTableModule
+    MatTableModule,
   ],
   exports: [
     BrowserModule,
@@ -42,7 +42,7 @@ import {MatTableModule} from '@angular/material/table';
     MatListModule,
     MatDividerModule,
     MatPaginatorModule,
-    MatTableModule
+    MatTableModule,
   ]
 })
 export class MaterialModule { }
