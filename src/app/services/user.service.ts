@@ -57,31 +57,25 @@ export class UserService {
       .pipe(retry(2), catchError(this.handleError));
   }
 
-  getCustomerByEmailAndPassword(email: string, password: string) {
-    const url = 'http://localhost:8080/api/saveup/v1/customers/login';
-  
+  getCustomerByEmailAndPassword(email: string, password: string) { 
     const body = {
       email: email,
       password: password
     };
   
-    return this.http.post(url, body, this.httpOptions)
+    return this.http.post(`${this.base_Url}/customers/login`, body, this.httpOptions)
       .pipe(catchError(this.handleError));
   }
 
   getCompanyByEmailAndPassword(email: string, password: string) {
-    const url = 'http://localhost:8080/api/saveup/v1/companies/login';
-
     const body = {
       email: email,
       password: password
     };
   
-    return this.http.post(url, body, this.httpOptions)
+    return this.http.post(`${this.base_Url}/companies/login`, body, this.httpOptions)
       .pipe(catchError(this.handleError));
   }
-
-  
 
   updateCustomer(item: any) {
     const user = this.authService.getUser();
