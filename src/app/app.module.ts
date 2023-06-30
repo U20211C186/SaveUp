@@ -29,10 +29,18 @@ import { EditProfileComponent } from './components/edit-profile/edit-profile.com
 import { ConfirmPurchaseComponent } from './components/confirm-purchase/confirm-purchase.component';
 import { PurchaseHistoryComponent } from './components/purchase-history/purchase-history.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
-import { CompraExitosaComponent } from './components/compra-exitosa/compra-exitosa.component';
 import { CheckInCompanyComponent } from './components/check-in-company/check-in-company.component';
 import { CerrarSesionComponent } from './components/cerrar-sesion/cerrar-sesion.component';
-import { ProfileViewComponent } from './components/profile-view/profile-view.component';
+import { AddCardComponent } from './components/add-card/add-card.component';
+import { ConfirmacionCompraComponent } from './components/confirmacion-compra/confirmacion-compra.component';
+import { SaleHistoryComponent } from './components/sale-history/sale-history.component';
+import { ConfirmationEditprofileComponent } from './components/confirmation-editprofile/confirmation-editprofile.component';
+import { ViewCardsComponent } from './components/view-cards/view-cards.component';
+import { DeletePublicationComponent } from './components/delete-publication/delete-publication.component';
+import { AddProductComponent } from './components/add-product/add-product.component';
+import { ViewProductsComponent } from './components/view-products/view-products.component';
+import { EditProductComponent } from './components/edit-product/edit-product.component';
+import { SaleDetailComponent } from './components/sale-detail/sale-detail.component';
 
 @NgModule({
   declarations: [
@@ -49,10 +57,18 @@ import { ProfileViewComponent } from './components/profile-view/profile-view.com
     ConfirmPurchaseComponent,
     PurchaseHistoryComponent,
     CarritoComponent,
-    CompraExitosaComponent,
     CheckInCompanyComponent,
     CerrarSesionComponent,
-    ProfileViewComponent
+    AddCardComponent,
+    ConfirmacionCompraComponent,
+    SaleHistoryComponent,
+    ConfirmationEditprofileComponent,
+    ViewCardsComponent,
+    DeletePublicationComponent,
+    AddProductComponent,
+    ViewProductsComponent,
+    EditProductComponent,
+    SaleDetailComponent
   ],
   imports: [
     BrowserModule,
