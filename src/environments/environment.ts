@@ -1,3 +1,5 @@
 export const environment = {
-    baseURL:'https://saveup-45a79-default-rtdb.firebaseio.com'
+    //baseURL:"https://saveup-api-production.up.railway.app/api/saveup/v1"
+
+    baseURL: "http://localhost:8080/api/saveup/v1"
 };
