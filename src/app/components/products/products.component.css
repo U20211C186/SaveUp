@@ -1,25 +1,47 @@
-    #products {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        /* margin: 0 auto; */
-        margin-left: 15%;
-        margin-right: 15%;
-        margin-top: 4%;
-        margin-bottom: 4%;
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  
+  .example-card {
+    flex-basis: calc(25% - 20px);
+    margin: 10px;
+    text-align: center;
+  }
+  
+  .example-card img {
+    width: 100%;
+  }
+  
+  @media (max-width: 960px) {
+    .example-card {
+      flex-basis: calc(33.33% - 20px);
     }
-    
-    .product {
-        flex-basis: calc(33.33% - 20px);
-        max-width: 300px;
-        margin-bottom: 20px;
-        border: solid 1px black;
+  }
+  
+  @media (max-width: 600px) {
+    .example-card {
+      flex-basis: calc(50% - 20px);
     }
-    
-    .content {
-        text-align: center;
-    }
-    
-    img {
-        padding-left: 2em;
-    }
+  }
+  
+
+mat-form-field {
+    margin-bottom: 0;
+    max-width: 300px; /* Cambia "width" a "max-width" para permitir que el campo de búsqueda sea responsive */
+    width: 100%; /* Asegúrate de que el campo de búsqueda ocupe todo el ancho disponible */
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    flex-grow: 1; /* Agrega esta línea para que el contenedor de búsqueda crezca y ocupe el espacio disponible */
+    justify-content: center; /* Agrega esta línea para centrar horizontalmente el contenido de búsqueda */
+}
+.center {
+    display: flex;
+    justify-content: center;
+  }
+  
