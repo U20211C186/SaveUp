@@ -1,0 +1,6 @@
+caracteristica: El usuario quiere publicar un producto
+	Como vendedor quiero publicar nuevos productos.
+	Escenario: El usuario registrado publica un nuevo producto
+		Dado que el usuario se encuentre en la seccion "Home"
+		Cuando le de click al boton "Agregar producto"
+		Entonces le dirigira a una seccion donde podra ingresar los datos necesarios para el registro de un nuevo producto.
