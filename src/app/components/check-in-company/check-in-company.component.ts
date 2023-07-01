@@ -23,7 +23,7 @@ export class CheckInCompanyComponent {
   district = new FormControl('', [Validators.required]);
   phoneNumber = new FormControl('', [Validators.required]);
   password = new FormControl('', [Validators.required]);
-  repeatPassword = new FormControl('', [Validators.required]);
+  confirmPassword = new FormControl('', [Validators.required]);
 
 
   onSubmit() {
@@ -35,14 +35,14 @@ export class CheckInCompanyComponent {
     const districtValue = this.district.value;
     const phoneNumberValue = this.phoneNumber.value;
     const passwordValue = this.password.value;
-    const confirmPasswordValue = this.repeatPassword.value;
+    const confirmPasswordValue = this.confirmPassword.value;
   
     const user: any = {
       email: emailValue,
       name: nameValue,
       ruc: rucValue,
       address: addressValue,
-      departament: departamentValue,
+      department: departamentValue,
       district: districtValue,
       phoneNumber: phoneNumberValue,
       password: passwordValue,
@@ -50,8 +50,9 @@ export class CheckInCompanyComponent {
     };
 
     this.userService.createCompany(user).subscribe(
-      (res) => {
+      (res: any) => {
         this.authService.setUser(res);
+        this.router.navigate(['/view/products']);
       }
     );
   }
@@ -67,7 +68,5 @@ export class CheckInCompanyComponent {
 
   save() {
     this.onSubmit();
-    
-    this.router.navigate(['/view/products']);
   }
 }
