@@ -45,11 +45,23 @@ export class ProductService {
       .pipe(retry(2), catchError(this.handleError));
   }
 
-  createProduct(item: any) {
+  getProductsByCompany(): Observable<any> {
     const user = this.authService.getUser();
-
+    
     return this.http
-      .post(`${this.base_Url}/companies/${user?.id}/products`, JSON.stringify(item), this.httpOptions)
+      .get(`${this.base_Url}/products/company/${user?.id}`)
+      .pipe(retry(2), catchError(this.handleError));
+  }
+
+  createProduct(item: any) {
+    return this.http
+      .post(`${this.base_Url}/products`, JSON.stringify(item), this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
+  }
+
+  updateProduct(id: any, item: any) {
+    return this.http
+      .put(`${this.base_Url}/products/${id}`, JSON.stringify(item), this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 

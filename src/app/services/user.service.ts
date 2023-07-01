@@ -77,6 +77,24 @@ export class UserService {
       .pipe(catchError(this.handleError));
   }
 
+  getCustomerByEmail(email: string) {
+    const body = {
+      email: email
+    };
+
+    return this.http.post(`${this.base_Url}/customers/recover`, body, this.httpOptions)
+      .pipe(catchError(this.handleError));
+  }
+
+  getCompanyByEmail(email: string) {
+    const body = {
+      email: email
+    };
+
+    return this.http.post(`${this.base_Url}/companies/recover`, body, this.httpOptions)
+      .pipe(catchError(this.handleError));
+  }
+
   updateCustomer(item: any) {
     const user = this.authService.getUser();
 
@@ -96,6 +114,14 @@ export class UserService {
 
     return this.http
       .get(`${this.base_Url}/purchase/${user?.id}/data`)
+      .pipe(retry(2), catchError(this.handleError));
+  }
+
+  getSaleData(): Observable<any> {
+    const user = this.authService.getUser();
+
+    return this.http
+      .get(`${this.base_Url}/sale/${user?.id}/data`)
       .pipe(retry(2), catchError(this.handleError));
   }
 
