@@ -28,7 +28,7 @@
 
         <mat-form-field appearance="outline">
           <mat-label style="color: white">RUC</mat-label>
-          <input matInput placeholder="Placeholder" [formControl]="lastName" style="color: white">
+          <input matInput placeholder="Placeholder" [formControl]="ruc" style="color: white">
           <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
           <mat-hint>Requerido</mat-hint>
         </mat-form-field>
@@ -70,13 +70,13 @@
         
         <mat-form-field appearance="outline">
           <mat-label style="color: white">Repetir Contraseña</mat-label>
-          <input matInput placeholder="Placeholder" [formControl]="userName" style="color: white">
+          <input matInput placeholder="Placeholder" [formControl]="repeatPassword" style="color: white">
           <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
           <mat-hint>Requerido</mat-hint>
         </mat-form-field>
     </p>
     
-    <button mat-button style="background-color: #E95D5D;font-weight: bold" routerLink="/view/products" >Regístrate</button>
+    <button mat-button style="background-color: #E95D5D;font-weight: bold" (click)="save()">Regístrate</button>
     <a class="registrarse"  routerLink="/check/in" style="color: black; font-weight: bold;">¿No tienes una cuenta? ¡Regístrate ahora!</a>
     <hr class="mi-linea">
     <a class="registrarseempresa"  routerLink="/check/company" style="color: black; font-weight: bold;">¿Eres una empresa? Da click aquí </a>

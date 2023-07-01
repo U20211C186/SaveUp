@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router'
 import { UserService } from 'src/app/services/user.service';
+import { AuthService } from 'src/app/services/auth-service/auth.service';
 
 @Component({
   selector: 'app-check-in-company',
@@ -9,45 +10,50 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./check-in-company.component.css']
 })
 export class CheckInCompanyComponent {
-  constructor(private userService:UserService, private router: Router) { }
+  constructor(private userService:UserService, private router: Router, private authService: AuthService) { }
 
   ngOnInit(): void {
   }
 
   email = new FormControl('', [Validators.required, Validators.email]);
   name = new FormControl('', [Validators.required]);
-  lastName = new FormControl('', [Validators.required]);
+  ruc = new FormControl('', [Validators.required]);
   address = new FormControl('', [Validators.required]);
   departament = new FormControl('', [Validators.required]);
   district = new FormControl('', [Validators.required]);
   phoneNumber = new FormControl('', [Validators.required]);
   password = new FormControl('', [Validators.required]);
-  userName = new FormControl('', [Validators.required]);
+  repeatPassword = new FormControl('', [Validators.required]);
 
 
   onSubmit() {
     const emailValue = this.email.value;
     const nameValue = this.name.value;
-    const lastNameValue = this.lastName.value;
+    const rucValue = this.ruc.value;
     const addressValue = this.address.value;
     const departamentValue = this.departament.value;
     const districtValue = this.district.value;
     const phoneNumberValue = this.phoneNumber.value;
     const passwordValue = this.password.value;
-    const userNameValue = this.userName.value;
+    const confirmPasswordValue = this.repeatPassword.value;
   
-    const user = {
-      email:emailValue,
+    const user: any = {
+      email: emailValue,
       name: nameValue,
-      lastName:lastNameValue,
-      address:addressValue,
+      ruc: rucValue,
+      address: addressValue,
       departament: departamentValue,
-      district:districtValue,
+      district: districtValue,
       phoneNumber: phoneNumberValue,
-      password:passwordValue,
-      userName:userNameValue,
-      isUserAdmin:true,
+      password: passwordValue,
+      repeatPassword: confirmPasswordValue
     };
+
+    this.userService.createCompany(user).subscribe(
+      (res) => {
+        this.authService.setUser(res);
+      }
+    );
   }
   
   
@@ -57,5 +63,11 @@ export class CheckInCompanyComponent {
     }
 
     return this.email.hasError('email') ? 'No es un correo electrónico válido' : '';
+  }
+
+  save() {
+    this.onSubmit();
+    
+    this.router.navigate(['/view/products']);
   }
 }
