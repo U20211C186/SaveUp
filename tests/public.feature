@@ -1,4 +1,4 @@
-caracteristica: El usuario quiere publicar un producto
+Característica: El usuario quiere publicar un producto
 	Como vendedor quiero publicar nuevos productos.
 	Escenario: El usuario registrado publica un nuevo producto
 		Dado que el usuario se encuentre en la seccion "Home"
