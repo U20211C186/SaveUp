@@ -1,4 +1,4 @@
-caracteristica: El usuario quiere ver su reporte de ventas
+Característica: El usuario quiere ver su reporte de ventas
 	Como vendedor quiero visualizar un reporte de productos vendidos.
 	Escenario: El usuario quiere ver cuanto ha ganado con la veenta de sus productos.
 		Dado que el usuario visualice el toolbar
