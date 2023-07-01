@@ -41,6 +41,7 @@ import { AddProductComponent } from './components/add-product/add-product.compon
 import { ViewProductsComponent } from './components/view-products/view-products.component';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
 import { SaleDetailComponent } from './components/sale-detail/sale-detail.component';
+import { EditProfileCompanyComponent } from './components/edit-profile-company/edit-profile-company.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { SaleDetailComponent } from './components/sale-detail/sale-detail.compon
     AddProductComponent,
     ViewProductsComponent,
     EditProductComponent,
-    SaleDetailComponent
+    SaleDetailComponent,
+    EditProfileCompanyComponent
   ],
   imports: [
     BrowserModule,

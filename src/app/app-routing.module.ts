@@ -8,6 +8,7 @@ import { PaymentMethodComponent } from './components/payment-method/payment-meth
 import { ProductsComponent } from './components/products/products.component';
 import { ChatboxComponent } from './components/chatbox/chatbox.component';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
+import { EditProfileCompanyComponent } from './components/edit-profile-company/edit-profile-company.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
 import { PurchaseHistoryComponent } from './components/purchase-history/purchase-history.component';
 import { CheckInCompanyComponent } from './components/check-in-company/check-in-company.component';
@@ -34,6 +35,7 @@ const routes: Routes = [
   { path: 'products', component: ProductsComponent},
   { path: 'chatbox', component: ChatboxComponent},
   { path: 'edit/profile', component: EditProfileComponent },
+  { path: 'edit/company', component: EditProfileCompanyComponent },
   { path: 'carrito', component: CarritoComponent },
   { path: 'purchase/history', component: PurchaseHistoryComponent },
   { path: 'sale/history', component: SaleHistoryComponent },
@@ -47,7 +49,7 @@ const routes: Routes = [
   { path: 'delete/publication', component: DeletePublicationComponent },
   { path: 'add/product', component: AddProductComponent },
   { path: 'view/products', component: ViewProductsComponent },
-  { path: 'edit/product', component: EditProductComponent },
+  { path: 'edit/product/:id', component: EditProductComponent },
   { path: 'sale/detail', component: SaleDetailComponent },
 
 
