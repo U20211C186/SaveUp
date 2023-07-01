@@ -55,7 +55,7 @@ export class ProductService {
 
   createProduct(item: any) {
     return this.http
-      .post(`${this.base_Url}/products`, JSON.stringify(item), this.httpOptions)
+      .post(`${this.base_Url}/products/post`, JSON.stringify(item), this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 
