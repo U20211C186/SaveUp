@@ -1,4 +1,4 @@
-caracteristica: El usuario quiere editar un producto
+Característica: El usuario quiere editar un producto
 	Como vendedor quiero editar un producto que ya se encuentra registrado.
 	Escenario: El usuario edita un producto registrado.
 		Dado que el usuario se encuentre en la vista detallada de un producto
