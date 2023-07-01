@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth-service/auth.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
-  selector: 'app-editar-perfil',
-  templateUrl: './edit-profile.component.html',
-  styleUrls: ['./edit-profile.component.css']
+  selector: 'app-edit-profile-company',
+  templateUrl: './edit-profile-company.component.html',
+  styleUrls: ['./edit-profile-company.component.css']
 })
-export class EditProfileComponent implements OnInit {
+export class EditProfileCompanyComponent {
   hide = true;
   userForm!: FormGroup;
   userData!: any;
@@ -95,7 +95,6 @@ export class EditProfileComponent implements OnInit {
           email: this.userData?.email,
           points: this.userData?.points
         };
-        
         this.userService.updateCustomer(user).subscribe(
           (data) => {
             console.log(data);
@@ -134,7 +133,7 @@ export class EditProfileComponent implements OnInit {
         this.cancelEdit();
 
         this.authService.setUser(user);
-        
+
       }
     }
   }
@@ -143,11 +142,6 @@ export class EditProfileComponent implements OnInit {
 
   cancelEdit() {
     this.router.navigate(['/edit/profile']);
-    //this.location.back();
-  }
-
-  viewCards() {
-    this.router.navigate(['/view/cards']);
   }
 
   confirm() {

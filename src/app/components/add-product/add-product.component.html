@@ -30,13 +30,13 @@
                 <div class="price">
                     <p>Precio</p>
                     <mat-form-field>
-                        <input matInput type="string" formControlName="precio" />
+                        <input matInput type="double" formControlName="precio" />
                     </mat-form-field>
                 </div>
                 <div class="stock">
                     <p>Stock</p>
                     <mat-form-field>
-                        <input matInput type="string" formControlName="stock" />
+                        <input matInput type="int" formControlName="stock" />
                     </mat-form-field>
                 </div>
 
@@ -49,7 +49,7 @@
             </div>
 
             <div class="button">
-                <button mat-fab extended (click)="onSubmit()" routerLink="/edit/product">
+                <button mat-fab extended (click)="onSubmit()" routerLink="/view/products">
                     Publicar
                 </button>
             </div>

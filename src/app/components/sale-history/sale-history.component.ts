@@ -1,8 +1,7 @@
-import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { Component, ViewChild  } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { Buys } from 'src/app/models/buys.model';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-sale-history',
@@ -10,33 +9,31 @@ import { Buys } from 'src/app/models/buys.model';
   styleUrls: ['./sale-history.component.css']
 })
 export class SaleHistoryComponent {
-  historyData: Buys;
-  data:Buys[] = [];
-  displayedColumns: string[] = ['nombre', 'apellido', 'n_productos', 'total', 'fecha_hora', 'estado'];
 
-  dataSource = new MatTableDataSource<Buys>(this.data);
-  clickedRows = new Set<Buys>()
+  historyData: any;
+  data: any[] = [];
+  displayedColumns: string[] = ['name', 'last_name', 'orders', 'price', 'date'];
 
-  constructor(/*private service:HistoryService,*/ private _liveAnnouncer: LiveAnnouncer) {
-    this.historyData = {} as Buys;
+  dataSource = new MatTableDataSource<any>(this.data);
+  clickedRows = new Set<any>()
+
+  constructor(private userService: UserService) {
+    this.historyData = {};
   }
 
   @ViewChild(MatPaginator, {static: true})
   paginator!: MatPaginator
 
   ngOnInit(): void {
-    /*
     this.getHistory();
     this.dataSource.paginator = this.paginator;
-    */
   }
 
   getHistory(): void {
-    /*
-    this.service.getList().subscribe((response) => {
+    this.userService.getSaleData().subscribe(
+      (response) => {
       console.log(response)
       this.dataSource.data = response;
     });
-    */
   }
 }

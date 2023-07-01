@@ -1,11 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
-import { Buys } from 'src/app/models/buys.model';
-
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
-
 import { UserService } from 'src/app/services/user.service';
-import { LiveAnnouncer } from '@angular/cdk/a11y';
 
 @Component({
   selector: 'app-purchase-history',
@@ -21,7 +17,7 @@ export class PurchaseHistoryComponent {
   dataSource = new MatTableDataSource<any>(this.data);
   clickedRows = new Set<any>()
 
-  constructor(private _liveAnnouncer: LiveAnnouncer, private userService: UserService) {
+  constructor(private userService: UserService) {
     this.historyData = {};
   }
 

@@ -42,7 +42,6 @@ export class CarritoComponent implements OnInit{
     this.cartService.getCartByOrder().subscribe( 
       (data: any) => {
         this.products = data;
-        console.log(this.products);
         this.nProducts = data.length;
 
         for(let i = 0; i < this.nProducts; i++){
@@ -76,9 +75,7 @@ export class CarritoComponent implements OnInit{
     this.totalSum = 0;
     this.products.forEach((product: any) => {
       this.totalSum += product.price;
-      console.log(this.totalSum);
     });
-    console.log(this.totalSum);
   }
 
   removeProduct(product: any) {
@@ -108,7 +105,6 @@ export class CarritoComponent implements OnInit{
   }
 
   pay() {
-    console.log(this.totalSum);
 
     this.paymentService.updateProductStock(this.totalSum).subscribe(
       (data: any) => {

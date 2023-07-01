@@ -48,20 +48,6 @@ export class CheckInCompanyComponent {
       userName:userNameValue,
       isUserAdmin:true,
     };
-  
-    /*
-    this.userService.añadirUsuario(user).subscribe(
-      
-      (data)=>{
-        console.log(data);
-        alert("Usuario registrado");
-      },(error)=>{
-        console.log(error);
-        alert("Ocurrió un error al registrar el usuario");
-      }
-    )
-    */
-
   }
   
   

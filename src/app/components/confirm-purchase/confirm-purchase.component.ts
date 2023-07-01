@@ -64,8 +64,6 @@ export class ConfirmPurchaseComponent {
       amount: this.amountTemp
     };
 
-    console.log(newItem);
-
     this.paymentService.updatePayment(newItem).subscribe();
 
     this.paymentService.getPayById(this.order?.payId).subscribe(

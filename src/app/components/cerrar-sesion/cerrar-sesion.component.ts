@@ -13,10 +13,10 @@ import { Location } from '@angular/common';
   styleUrls: ['./cerrar-sesion.component.css']
 })
 export class CerrarSesionComponent {
-
    orderSession = this.authService.getOrder();
    cartSession: any[] = [];
    productsSession: any[] = [];
+   userData!: any;
 
    constructor(
       private location: Location,
@@ -28,85 +28,94 @@ export class CerrarSesionComponent {
       private paymentService: PaymentService
    ) {}
 
+   ngOnInit(): void {
+      this.userData = this.authService.getUser();
+   }
+
    toolbarDisabled: boolean = true;
    
    public logout() {
-      this.cartService.getAllCarts().subscribe(
-         (data: any) => {
-            this.cartSession = data.filter((cart: any) => cart.orderId === this.orderSession.id );
-
-            this.productsSession = this.cartSession.map((cart: any) => cart.productId);
-
-            console.log(this.cartSession);
-            console.log(this.productsSession);
-
-            if(this.productsSession.length != 0) {
-               for(let i = 0; i < this.productsSession.length; i++) {
-                  this.productService.getProductById(this.productsSession[i]).subscribe(
+      if (this.userData?.lastName) {
+         this.cartService.getAllCarts().subscribe(
+            (data: any) => {
+               this.cartSession = data.filter((cart: any) => cart.orderId === this.orderSession.id );
+   
+               this.productsSession = this.cartSession.map((cart: any) => cart.productId);
+   
+               if(this.productsSession.length != 0) {
+                  for(let i = 0; i < this.productsSession.length; i++) {
+                     this.productService.getProductById(this.productsSession[i]).subscribe(
+                        (data: any) => {
+                           const newStock = data.stock + 1;
+         
+                           this.productService.updateProductStock(this.productsSession[i], newStock).subscribe(
+                              (data: any) => {
+                                 console.log(data);
+                              },
+                              (error: any) => {
+                                 console.log(error);
+                              }
+                           );
+                        }
+                     );
+                  }
+                  
+                  this.cartService.deleteAllCartsByOrderId(this.orderSession?.id).subscribe(
                      (data: any) => {
-                        const newStock = data.stock + 1;
-      
-                        this.productService.updateProductStock(this.productsSession[i], newStock).subscribe(
-                           (data: any) => {
-                              console.log(data);
-                           },
-                           (error: any) => {
-                              console.log(error);
-                           }
-                        );
+                        console.log(data);
+                     },
+                      (error: any) => {
+                        console.log(error);
+                     }
+                  );
+                  this.orderService.deleteOrder(this.orderSession?.id).subscribe(
+                     (data: any) => {
+                        console.log(data);
+                     },
+                      (error: any) => {
+                        console.log(error);
+                     }
+                  );
+                  this.paymentService.deletePayment(this.orderSession?.payId).subscribe(
+                     (data: any) => {
+                        console.log(data);
+                     },
+                      (error: any) => {
+                        console.log(error);
+                     }
+                  );
+   
+               } else {
+   
+                  this.orderService.deleteOrder(this.orderSession?.id).subscribe(
+                     (data: any) => {
+                        console.log(data);
+                     },
+                      (error: any) => {
+                        console.log(error);
+                     }
+                  );
+                  this.paymentService.deletePayment(this.orderSession?.payId).subscribe(
+                     (data: any) => {
+                        console.log(data);
+                     },
+                      (error: any) => {
+                        console.log(error);
                      }
                   );
                }
-               
-               this.cartService.deleteAllCartsByOrderId(this.orderSession?.id).subscribe(
-                  (data: any) => {
-                     console.log(data);
-                  },
-                   (error: any) => {
-                     console.log(error);
-                  }
-               );
-               this.orderService.deleteOrder(this.orderSession?.id).subscribe(
-                  (data: any) => {
-                     console.log(data);
-                  },
-                   (error: any) => {
-                     console.log(error);
-                  }
-               );
-               this.paymentService.deletePayment(this.orderSession?.payId).subscribe(
-                  (data: any) => {
-                     console.log(data);
-                  },
-                   (error: any) => {
-                     console.log(error);
-                  }
-               );
-
-            } else {
-
-               this.orderService.deleteOrder(this.orderSession?.id).subscribe(
-                  (data: any) => {
-                     console.log(data);
-                  },
-                   (error: any) => {
-                     console.log(error);
-                  }
-               );
-               this.paymentService.deletePayment(this.orderSession?.payId).subscribe(
-                  (data: any) => {
-                     console.log(data);
-                  },
-                   (error: any) => {
-                     console.log(error);
-                  }
-               );
             }
-         }
-      );
+         );
+   
+         this.authService.logout();
+         this.router.navigate(['/login/session']);
+         
+      } else if (this.userData?.ruc) {
+         
+         this.authService.logout();
+         this.router.navigate(['/login/session']);
 
-      this.authService.logout();
-      this.router.navigate(['/login/session']);
+      }
    }
  
    cancelar() {

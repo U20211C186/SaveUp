@@ -26,12 +26,7 @@ export class ToolbarSessionComponent implements OnInit {
   checkScreenSize() {
     this.isScreenSmall = window.innerWidth <= 960;
   }
-
- /* search() {
-    // Lógica para realizar la búsqueda con el texto ingresado
-    console.log('Texto de búsqueda:', this.searchText);
-  }*/
-
+  
   toggleMenu(): void {
     this.isMenuOpen = !this.isMenuOpen; // Cambia el estado del menú al hacer clic en el botón de menú
   }
@@ -45,9 +40,6 @@ export class ToolbarSessionComponent implements OnInit {
     } else if (user?.ruc) {
       this.router.navigate(['/view/products']);
     }
-
-    console.log(user?.id);
-    console.log(pay_id);
   }
 
   clickBandejaEntrada(): void {
@@ -66,7 +58,7 @@ export class ToolbarSessionComponent implements OnInit {
     if(user?.lastName) {
       this.router.navigate(['/edit/profile']);
     } else if (user?.ruc) {
-      this.router.navigate(['/edit/profile']);
+      this.router.navigate(['/edit/company']);
     }
   }
 

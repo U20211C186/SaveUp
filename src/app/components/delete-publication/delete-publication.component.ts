@@ -14,13 +14,9 @@ export class DeletePublicationComponent {
   
   public logout() {
       this.router.navigate(['/app/product']);
-   
-    
-    
   }
 
   cancelar() {
       this.location.back();
-    
   }
 }

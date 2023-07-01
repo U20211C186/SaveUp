@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ProductService } from 'src/app/services/product.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-products',
@@ -8,21 +10,32 @@ import { Component } from '@angular/core';
 export class ViewProductsComponent {
   searchText: string = '';
   filteredProducts: any[] = [];
+  products: any[] = [];
+
+  constructor(private productService: ProductService, private router: Router) { }
+  
+  ngOnInit() {
+    this.loadElements();
+  }
 
   search() {
     this.filteredProducts = this.products.filter(product =>
       product.name.toLowerCase().includes(this.searchText.toLowerCase())
     );
   }
+  
+  loadElements() {
+    this.productService.getProductsByCompany().subscribe(
+      (data: any) => {
+        this.products = data.filter((product: any) => product.stock !== 0);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
 
-  products = [
-    { name: 'Shiba Inu', date: '2023-06-24', price: 99.99, stock: 10 },
-    { name: 'Poodle', date: '2023-06-25', price: 129.99, stock: 5 },
-    { name: 'Labrador Retriever', date: '2023-06-26', price: 149.99, stock: 2 },
-    { name: 'Labrador Retriever', date: '2023-06-26', price: 149.99, stock: 2 },
-
-    { name: 'Labrador Retriever', date: '2023-06-26', price: 149.99, stock: 2 },
-
-    // Agrega más objetos de producto según sea necesario
-  ];
+  viewProduct(product: any) {
+    this.router.navigate(['/edit/product', product.id]);
+  }
 }

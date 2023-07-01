@@ -2,26 +2,11 @@
 
 <div class="formulario">
     <div class="dates">
-        <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
-            <div>
-                <a routerLink="/add/product">
-                    <img id="productImage" src="/assets/images/addProduct.png" aria-label="Logo app" width="100" height="80" (click)="openFileSelector()">
-                  </a>
-                  
-                  <input id="fileSelector" type="file" style="display: none" (change)="loadImage($event)">
-                  
-            </div>
-           
+        <form [formGroup]="productForm" (ngSubmit)="onSubmit()">           
             <div>
                 <p>Nombre del producto</p>
                 <mat-form-field>
                     <input matInput type="string" formControlName="name" />
-                </mat-form-field>
-            </div>
-            <div>
-                <p>Marca del producto</p>
-                <mat-form-field>
-                    <input matInput type="string" formControlName="marca" />
                 </mat-form-field>
             </div>
             <div>
@@ -53,10 +38,10 @@
             </div>
 
             <div class="button-container">
-                <button mat-fab extended (click)="onSubmit()" routerLink="/delete/publication">
+                <button mat-fab extended (click)="cancelEdit()">
                   Eliminar
                 </button>
-                <button mat-fab extended (click)="onSubmit()" routerLink="/sale/detail">
+                <button mat-fab extended (click)="updateProductView()">
                   Guardar
                 </button>
               </div>

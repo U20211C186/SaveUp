@@ -13,15 +13,21 @@
     <mat-card class="example-card" *ngFor="let product of filteredProducts.length ? filteredProducts : products">
         <mat-card-header>
         <mat-card-title-group>
-          <img mat-card-lg-image src="https://material.angular.io/assets/img/examples/shiba2.jpg">
+          <img mat-card-lg-image src={{product.image}}>
         </mat-card-title-group>
       </mat-card-header>
       <mat-card-content>
         <p>{{ product.name }}</p>
-        <p>Fecha: {{ product.date }}</p>
+        <p>Descripcion: {{ product.description }}</p>
+        <p>Fecha: {{ product.expirationDate }}</p>
         <p>Precio: {{ product.price }}</p>
         <p>Stock: {{ product.stock }}</p>
       </mat-card-content>
+      <mat-card-actions class="center">
+        <button mat-icon-button color="primary" aria-label="Visulizar producto" (click)="viewProduct(product)">
+          <mat-icon> remove_red_eye </mat-icon>
+        </button>
+      </mat-card-actions>
     </mat-card>
 </div>
 

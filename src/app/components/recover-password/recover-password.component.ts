@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import {FormControl, Validators} from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
+import { UserService } from 'src/app/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-recover-password',
@@ -7,15 +9,13 @@ import {FormControl, Validators} from '@angular/forms';
   styleUrls: ['./recover-password.component.css']
 })
 export class RecoverPasswordComponent {
-  constructor(/*private httpDataService: HttpDataServiceService*/) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   email = new FormControl('', [Validators.required, Validators.email]);
 
   ngOnInit(): void {
   }
  
-
-
   onSubmit() {
     const emailValue = this.email.value;
     console.log(emailValue);
@@ -23,31 +23,31 @@ export class RecoverPasswordComponent {
       alert("Por favor ingrese un correo electrónico");
       return;
     }
-  
-    /*
-    this.httpDataService.checkEmail(emailValue).subscribe(
-      emailExists => {
-        if (emailExists) {
-          // Si el correo electrónico existe, enviar el enlace de recuperación
-          alert("Enlace de recuperación enviado a " + emailValue);
+
+    this.userService.getCustomerByEmail(emailValue).subscribe(
+      (customer: any) => {
+        if(customer) {
+          alert("Su contraseña es: " + customer.password);
           this.email.reset();
+          this.router.navigate(['/login/session']);
 
-          
         } else {
-          // Si el correo electrónico no existe, mostrar una alerta
-          alert("El correo electrónico " + emailValue + " no se encuentra registrado.");
-        }
-      },
-      error => {
-        console.log("Ocurrió un error al verificar el correo electrónico");
-        console.log(error);
-      }
-    );
-    */
-  }
+          this.userService.getCompanyByEmail(emailValue).subscribe(
+            (company: any) => {
+              if(company) {
+                alert("Su contraseña es: " + company.password);
+                this.email.reset();
+                this.router.navigate(['/login/session']);
 
-  
-  
+              } else {
+                alert("El correo ingresado no existe");
+              }
+            }
+          )
+        }
+      }
+    )
+  }
 
   getErrorMessage() {
     if (this.email.hasError('required')) {
